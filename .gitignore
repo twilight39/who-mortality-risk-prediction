@@ -19,5 +19,21 @@
 *.sln
 *.sw?
 
-# Jupyter Notebook files
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Tool caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# uv
+.venv/

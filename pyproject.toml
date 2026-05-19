@@ -1,11 +1,66 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "malaysia-mortality"
+version = "0.1.0"
+description = "WHO Global Burden of Disease mortality analysis for Malaysia"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "scipy>=1.14",
+    "scikit-learn>=1.6",
+    "matplotlib>=3.9",
+    "seaborn>=0.13",
+    "streamlit>=1.40",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "jupyterlab>=4.3",
+    "jupytext>=1.16",
+    "ruff>=0.9",
+    "basedpyright>=1.25",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/malaysia_mortality"]
+
 [tool.ruff]
-# Assumes Python 3.13
 target-version = "py313"
+line-length = 100
+exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N", "D", "UP"]
+ignore = ["D100", "D104", "D103", "N806", "N803"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+docstring-code-format = true
 
 [tool.basedpyright]
-include = ["src"]
+include = ["src", "tests", "scripts"]
+exclude = ["notebooks"]
 reportMissingImports = "error"
 reportMissingTypeStubs = false
 pythonVersion = "3.13"
-typeCheckingMode = "recommended"
-allowedUntypedLibraries = ["pandas"]
+typeCheckingMode = "basic"
+allowedUntypedLibraries = ["pandas", "numpy", "scipy", "sklearn"]
+reportConstantRedefinition = false
+reportPrivateImportUsage = false
+reportAttributeAccessIssue = false
+reportArgumentType = false
+reportCallIssue = false
+reportReturnType = false
+reportOperatorIssue = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
