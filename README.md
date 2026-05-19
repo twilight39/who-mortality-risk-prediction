@@ -33,8 +33,8 @@ This project uses [**uv**](https://docs.astral.sh/uv/) for dependency and enviro
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/twilight39/5011CEM-Big-Data.git
-cd 5011CEM-Big-Data
+git clone https://github.com/twilight39/who-mortality-risk-prediction.git
+cd who-mortality-risk-prediction
 
 # 2. Install dependencies (creates .venv automatically)
 uv sync
